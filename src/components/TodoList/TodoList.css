@@ -1,0 +1,11 @@
+button {
+  background-color: rgb(228, 62, 62);
+  width: 80px;
+  margin-top: 10px;
+  color: white;
+}
+
+.todoList .item {
+  display: flex;
+  flex-direction: column;
+}

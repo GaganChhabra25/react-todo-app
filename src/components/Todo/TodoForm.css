@@ -1,0 +1,23 @@
+.todoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.todoForm label {
+  margin: 10px 0;
+}
+
+.todoForm input {
+  background-color: lightblue;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.todoForm button {
+  background-color: green;
+  color: white;
+  width: 80px;
+  margin-top: 20px;
+}

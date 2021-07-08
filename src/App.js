@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header/Header";
+import TodoForm from "./components/Todo/TodoForm";
+import { useState } from "react";
+import TodoList from "./components/TodoList/TodoList";
 
-function App() {
+const App = () => {
+  const [items, addItems] = useState([]);
+
+  const handleFormSubmit = (item) => {
+    const newItems = [...items, item];
+    addItems(newItems);
+  };
+
+  const handleDelete = (item) => {
+    const updatedItems = items.filter(
+      (existingItem) => existingItem.id !== item.id
+    );
+    addItems(updatedItems);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <div className="container">
+        <TodoForm handleFormSubmit={handleFormSubmit} />
+        <TodoList items={items} handleDelete={handleDelete} />
+      </div>
     </div>
   );
-}
-
+};
 export default App;
